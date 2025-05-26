@@ -9,17 +9,18 @@ body {
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  cursor: url('https://cur.cursors-4u.net/others/oth-2/oth194.cur'), auto;
+  /* Cursor entfernt */
 }
 
 .glitch-text {
-  position: relative;
+  position: absolute;
   font-size: 3rem;
   font-weight: bold;
   color: white;
   text-transform: uppercase;
   animation: flicker 1.5s infinite alternate;
   filter: drop-shadow(0 0 10px white);
+  z-index: 2;
 }
 
 .glitch-text::before,
@@ -44,72 +45,42 @@ body {
   z-index: -2;
 }
 
+.trollface {
+  position: absolute;
+  width: 150px;
+  bottom: 40px;
+  right: 40px;
+  animation: shake 0.4s infinite alternate;
+  z-index: 1;
+}
+
 /* Glitch Keyframes */
 @keyframes glitchTop {
-  0% {
-    clip-path: inset(0 0 90% 0);
-    transform: translate(-3px, -3px);
-  }
-  20% {
-    clip-path: inset(10% 0 85% 0);
-    transform: translate(2px, -2px);
-  }
-  40% {
-    clip-path: inset(20% 0 65% 0);
-    transform: translate(-1px, 0);
-  }
-  60% {
-    clip-path: inset(30% 0 40% 0);
-    transform: translate(3px, 2px);
-  }
-  80% {
-    clip-path: inset(45% 0 20% 0);
-    transform: translate(-1px, -1px);
-  }
-  100% {
-    clip-path: inset(60% 0 0 0);
-    transform: translate(1px, 1px);
-  }
+  0% { clip-path: inset(0 0 90% 0); transform: translate(-3px, -3px); }
+  20% { clip-path: inset(10% 0 85% 0); transform: translate(2px, -2px); }
+  40% { clip-path: inset(20% 0 65% 0); transform: translate(-1px, 0); }
+  60% { clip-path: inset(30% 0 40% 0); transform: translate(3px, 2px); }
+  80% { clip-path: inset(45% 0 20% 0); transform: translate(-1px, -1px); }
+  100% { clip-path: inset(60% 0 0 0); transform: translate(1px, 1px); }
 }
 
 @keyframes glitchBottom {
-  0% {
-    clip-path: inset(0 0 85% 0);
-    transform: translate(3px, 1px);
-  }
-  20% {
-    clip-path: inset(10% 0 70% 0);
-    transform: translate(-2px, -1px);
-  }
-  40% {
-    clip-path: inset(30% 0 50% 0);
-    transform: translate(1px, 0);
-  }
-  60% {
-    clip-path: inset(50% 0 30% 0);
-    transform: translate(-3px, 1px);
-  }
-  80% {
-    clip-path: inset(70% 0 10% 0);
-    transform: translate(2px, -2px);
-  }
-  100% {
-    clip-path: inset(85% 0 0 0);
-    transform: translate(-1px, 2px);
-  }
+  0% { clip-path: inset(0 0 85% 0); transform: translate(3px, 1px); }
+  20% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, -1px); }
+  40% { clip-path: inset(30% 0 50% 0); transform: translate(1px, 0); }
+  60% { clip-path: inset(50% 0 30% 0); transform: translate(-3px, 1px); }
+  80% { clip-path: inset(70% 0 10% 0); transform: translate(2px, -2px); }
+  100% { clip-path: inset(85% 0 0 0); transform: translate(-1px, 2px); }
 }
 
 /* Flacker-Animation */
 @keyframes flicker {
-  0% { opacity: 1; }
-  5% { opacity: 0.8; }
-  10% { opacity: 1; }
-  15% { opacity: 0.9; }
-  20% { opacity: 1; }
-  25% { opacity: 0.95; }
-  30% { opacity: 1; }
-  35% { opacity: 0.85; }
-  40% { opacity: 1; }
-  100% { opacity: 1; }
+  0%, 10%, 20%, 30%, 40%, 100% { opacity: 1; }
+  5%, 15%, 25%, 35% { opacity: 0.85; }
 }
 
+/* Trollface Shake */
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(2px, -2px) rotate(2deg); }
+}
