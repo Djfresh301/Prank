@@ -1,12 +1,10 @@
-// Optional: kleine Verzögerung, damit es realer wirkt
-setTimeout(() => {
-  document.getElementById("progress").innerText = "100%";
-}, 1000);
-// Fake Virus-Warnung anzeigen
+// Zeige Fake-Warnung direkt beim Laden
 window.onload = () => {
-  document.getElementById("fakeAlert").style.display = "block";
-};
+  const warnung = document.getElementById("virus-warning");
+  warnung.style.display = "block";
 
-function closeAlert() {
-  document.getElementById("fakeAlert").style.display = "none";
-}
+  // Warnung nach 3 Sekunden automatisch ausblenden
+  setTimeout(() => {
+    warnung.style.display = "none";
+  }, 3000);
+};
