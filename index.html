@@ -2,25 +2,26 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Warnung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gehackt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="flacker"></div>
+
   <div class="centered">
     <h1>Haha du wurdest Gehackt.</h1>
     <p>Ich hab nicht nur dein Browserverlauf.</p>
     <div class="progress-bar">
-      <div class="progress" id="progress">100%</div>
+      <div class="progress">100%</div>
     </div>
   </div>
 
+  <!-- Fake Warnmeldung -->
+  <div id="virus-warning">
+    <img src="img/warnung.png" alt="Warnmeldung" />
+  </div>
+
   <script src="script.js"></script>
-  <div class="fake-alert" id="fakeAlert">
-  <h2>Die Website wurde als gefährlich gemeldet</h2>
-  <p>Diese Seite enthält möglicherweise Malware oder Phishing-Inhalte.</p>
-  <p>Google empfiehlt, diese Seite zu schließen.</p>
-  <button onclick="closeAlert()">Ignorieren und fortfahren</button>
-</div>
 </body>
 </html>
