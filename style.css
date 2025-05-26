@@ -1,79 +1,85 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('background.png') no-repeat center center fixed;
+  background-image: url("img/matrix.png");
   background-size: cover;
-  color: #ff0000;
-  font-family: 'Courier New', monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-position: center;
   height: 100vh;
-  user-select: none;
+  color: lime;
+  font-family: monospace;
+  overflow: hidden;
 }
 
 .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  backdrop-filter: brightness(80%);
 }
 
 h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px red;
+  color: red;
+  margin-bottom: 20px;
 }
 
 p {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
-  text-shadow: 0 0 5px red;
 }
 
 .progress-bar {
   width: 300px;
   height: 25px;
-  border: 2px solid red;
-  background-color: rgba(0, 0, 0, 0.7);
-  margin: 0 auto;
+  border: 2px solid lime;
+  margin: 20px auto;
   position: relative;
 }
 
 .progress {
-  height: 100%;
   width: 100%;
-  background-color: red;
+  height: 100%;
+  background-color: lime;
   text-align: center;
   color: black;
   font-weight: bold;
   line-height: 25px;
 }
-.fake-alert {
+
+/* Fake Warnung */
+#virus-warning {
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -20%);
-  background-color: #fff3f3;
-  color: #b00020;
-  border: 2px solid #b00020;
-  padding: 30px;
-  width: 350px;
-  box-shadow: 0 0 20px red;
+  transform: translateX(-50%);
   z-index: 9999;
-  text-align: center;
-  font-family: sans-serif;
+  display: none;
 }
 
-.fake-alert h2 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+#virus-warning img {
+  width: 90vw;
+  max-width: 700px;
+  border: 3px solid red;
+  box-shadow: 0 0 20px red;
 }
 
-.fake-alert button {
-  background-color: #b00020;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 15px;
+/* Flacker Effekt */
+.flacker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  animation: flackerAnim 2s ease-in-out forwards;
 }
+
+@keyframes flackerAnim {
+  0%, 100% { opacity: 0; }
+  10%, 30%, 50%, 70%, 90% { opacity: 0.2; }
+  20%, 40%, 60%, 80% { opacity: 0; }
+}
+
+
